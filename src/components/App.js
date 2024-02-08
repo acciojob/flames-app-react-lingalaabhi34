@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/App.js"
 const App=()=>{
     const [first,setfirst]=useState("");
     const [second,setsecond]=useState("");
@@ -53,11 +52,7 @@ switch(result){
         <button type="submit" data-testid="clear" onClick={cleardata}>Clear</button>
         {
             status &&   <h3 data-testid="answer">{status}</h3>
-        }
-     
-
-
-        
+        } 
         </div>
     )
 }
