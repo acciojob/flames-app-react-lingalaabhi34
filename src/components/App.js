@@ -1,16 +1,64 @@
-import React, {Component, useState} from "react";
-import '../styles/App.css';
-
-class App extends Component {
-    render() {
-
-        return(
-            <div id="main">
-               {/* Do not remove the main div */}
-            </div>
-        )
+import React, { useState } from "react";
+import "../styles/App.js"
+const App=()=>{
+    const [first,setfirst]=useState("");
+    const [second,setsecond]=useState("");
+    const [data,setdata]=useState("");
+    const [status,setstatus] =useState();
+    function calculateFlames(e){
+    e.preventDefault();
+    let remainingfirst ="";
+    let remainingsecond ="";
+    let str1 = first.toLowerCase();
+    let str2 = second.toLowerCase();
+   for(let i=0;i<str1.length;i++){
+    if(!str2.includes(str1[i])){
+        remainingfirst += str1[i];
     }
+   }
+   for(let j=0;j<str2.length;j++){
+    if(!str1.includes(str2[j])){
+        remainingsecond += str2[j];
+    }
+   }
+const result =  (remainingfirst.length+remainingsecond.length)%6;
+// console.log(result);
+switch(result){
+    case 1:
+      return  setstatus("Friends");
+        case 2:
+          return  setstatus("Love");
+            case 3:
+             return   setstatus("Affection");
+                case 4:
+              return  setstatus("Marriage");
+                case 5:
+              return  setstatus("Enemy");
+                case 0:
+              return  setstatus("Siblings");
+
 }
 
+    }
+    function cleardata(){
+        setstatus()
+        setfirst("");
+        setsecond("");
+    }
+    return(
+        <div id="main">
+        <input type="text" placeholder="Enter first name" data-testid="input1" onChange={(e)=>{setfirst(e.target.value)}} required value={first}></input>
+        <input type="text" placeholder="Enter second name" data-testid="input2" onChange={(e)=>{setsecond(e.target.value)}} required value={second}></input>
+        <button type="submit" data-testid="calculate_relationship" onClick={calculateFlames}>Calculate Relationship Future</button>
+        <button type="submit" data-testid="clear" onClick={cleardata}>Clear</button>
+        {
+            status &&   <h3 data-testid="answer">{status}</h3>
+        }
+     
 
-export default App;
+
+        
+        </div>
+    )
+}
+export default App
