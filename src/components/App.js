@@ -54,9 +54,7 @@ switch(result){
         <button type="submit" data-testid="clear" onClick={cleardata}>Clear</button>
         {
             status &&  
-            <div data-testid="answer">
-            <h3>{status}</h3>
-            </div>
+            <h3 data-testid="answer">{status}</h3>
         } 
         </div>
     )
