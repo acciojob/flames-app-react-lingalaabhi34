@@ -48,12 +48,15 @@ switch(result){
     }
     return(
         <div id="main">
-        <input type="text" placeholder="first name" data-testid="input1" onChange={(e)=>{setfirst(e.target.value)}} required value={first}></input>
-        <input type="text" placeholder="second name" data-testid="input2" onChange={(e)=>{setsecond(e.target.value)}} required value={second}></input>
+        <input type="text" placeholder="first name" data-testid="input1" onChange={(e)=>{setfirst(e.target.value)}} required value={first} name="name1"></input>
+        <input type="text" placeholder="second name" data-testid="input2" onChange={(e)=>{setsecond(e.target.value)}} required value={second} name="name2"></input>
         <button type="submit" data-testid="calculate_relationship" onClick={calculateFlames}>Calculate Relationship Future</button>
         <button type="submit" data-testid="clear" onClick={cleardata}>Clear</button>
         {
-            status &&   <h3 data-testid="answer">{status}</h3>
+            status &&  
+            <div data-testid="answer">
+            <h3>{status}</h3>
+            </div>
         } 
         </div>
     )
