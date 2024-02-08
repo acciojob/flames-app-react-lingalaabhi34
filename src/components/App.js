@@ -35,6 +35,8 @@ switch(result){
               return  setstatus("Enemy");
                 case 0:
               return  setstatus("Siblings");
+              default:
+       return setstatus("");
 
 }
 
@@ -46,8 +48,8 @@ switch(result){
     }
     return(
         <div id="main">
-        <input type="text" placeholder="Enter first name" data-testid="input1" onChange={(e)=>{setfirst(e.target.value)}} required value={first}></input>
-        <input type="text" placeholder="Enter second name" data-testid="input2" onChange={(e)=>{setsecond(e.target.value)}} required value={second}></input>
+        <input type="text" placeholder="first name" data-testid="input1" onChange={(e)=>{setfirst(e.target.value)}} required value={first}></input>
+        <input type="text" placeholder="second name" data-testid="input2" onChange={(e)=>{setsecond(e.target.value)}} required value={second}></input>
         <button type="submit" data-testid="calculate_relationship" onClick={calculateFlames}>Calculate Relationship Future</button>
         <button type="submit" data-testid="clear" onClick={cleardata}>Clear</button>
         {
